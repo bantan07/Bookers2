@@ -1,0 +1,18 @@
+<h1>Bookers</h1>
+<div class="container">  
+ <div class="row">  
+ <div class="col-lg-4">
+ <%= render'users/user',user:@user %>
+ <%= render'books/new',book:@book %>
+ </div>
+ 
+ <h1>Books</h1>
+ <div class="col-lg-8">
+ <table class="table table-striped">
+ <table>
+   <thead>
+    <tr>
+     <th>Title</th>
+     <th>Opinion</th>
+    </tr>
+   </thead>
