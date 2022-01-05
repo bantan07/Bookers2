@@ -19,7 +19,7 @@
      <td><%= link_to '#title', book_path(@book.id) %></td>
      <tb><%= @book.body %></tb>
      <td><%= link_to "Edit", edit_book_path(@book.id) %></td>
-     <td><%= button_to "Destroy", book_path(@book.id),method: :delete, data: { confirm: "本当に消しますか？?" } %></td>
+     <td><%= link_to "Destroy", book_path(@book.id),method: :delete, data: { confirm: "本当に消しますか？?" } %></td>
     </tr>
    </table>
   </div>

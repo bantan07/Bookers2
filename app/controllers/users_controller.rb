@@ -14,7 +14,6 @@ class UsersController < ApplicationController
   end
   
   def create
-    
     @user = User.new(user_params)
     if @user.save
       flash[:notice] = "successfully"
@@ -26,12 +25,10 @@ class UsersController < ApplicationController
   end
   
   def edit
-   if params[:id] == current_user.id
-    @user = User.find(params[:id])
-    render action: :edit
+   @user = User.find(params[:id])
+   if @user.id == current_user.id
    else
-    @user = current_user
-    render action: :show
+    redirect_to user_path(current_user)
    end
   end
   
