@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
  
-  before_action :current_user, only: [:edit, :update]
+  before_action :correct_user, only: [:edit, :update]
 
   def show
    @user = User.find(params[:id])
    @book = Book.new
+   @books = @user.books
+   
   end
   
   def index
@@ -19,6 +21,7 @@ class UsersController < ApplicationController
       flash[:notice] = "successfully"
         redirect_to user_path(@user.id)
     else
+      flash[:notice] = "error" 
       @users = User.all
       render :index
     end  

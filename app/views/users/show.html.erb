@@ -2,11 +2,11 @@
 <div class="container">  
  <div class="row">  
   <div class="col-lg-4">
-  <%= render'users/user',user:@user %>
-  <%= render'books/new',book:@book %>
+  <%= render 'users/user',user:@user %>
+  <%= render 'books/new',book:@book %>
   </div>
   <div class="col-lg-8">
-  <h1>Books</h1>
+  <h2>Books</h2>
   <table class="table table-striped">
    <thead>
     <tr>
@@ -15,11 +15,14 @@
      </tr>
     </thead>
     <tbody>
-     <td><%= @book.title %></td>
-     <td><%= link_to "title", book_path %></td>
-     <td><%= @book.body %></td>
-    </tbody>
-  </table>
+      <% @books.each do |book| %>
+     <td><%= attachment_image_tag @user, :image, :fill, 50, 50,  fallback: "no_image.jpg" %></td>
+     <td><%= link_to book.title, book_path %></td>
+     <td><%= book.body %></td>
+     </tbody>
+    <% end %>
+   </table>
+  </div>
  </div>
 </div>
     
