@@ -1,12 +1,31 @@
    <h2>User info</h2>
+    <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@user.errors.count, "error") %> 1 error prohibited this obj from being saved:</h3>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
       <%= attachment_image_tag user, :image, :fill, 63, 63,  fallback: "no_image.jpg" %>
-      
-      <h4>name</h4>
-      <%= user.name %>
-      <h4>introduction</h4>
-      <%= user.introduction %>
-        
-      <%= link_to edit_user_path(user), class: 'btn btn-outline-secondary btn-block fas fa-user-cog' do  %>
-       <% if user.id == current_user.id %><!--<i class="fas fa-user-cog"></i>-->
-      <% end %>
-   <% end %>
+     <table class="table">
+       <tbody>
+        <tr></tr>
+        <tr>
+      	 <th>name</th>
+      	 <th><%= user.name %></th>
+        </tr>
+        <tr>
+   	    <th>introduction</th>
+   	    <th><%= user.introduction %></th>
+        </tr>
+       </tbody>
+      </table>
+      <div class="row">
+       <%= link_to edit_user_path(user), class: 'btn btn-outline-secondary btn-block fas fa-user-cog' do  %>
+       <% end %>
+       </div>
+       
+  
