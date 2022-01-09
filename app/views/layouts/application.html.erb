@@ -46,8 +46,8 @@
         <li class="nav-item">
           <%= link_to destroy_user_session_path,class: 'nav-link text-light' do  %>
           <i class="fas fa-sign-out-alt"></i>
-        Log out
-        <% end %>
+          Log out 
+          <% end %>
         </li>
         <% else %>
         <li class="nav-item">
@@ -81,6 +81,7 @@
     </nav>
    </header>
    <main>
+
    <%= yield %>
    </main>
   </body>

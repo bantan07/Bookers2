@@ -3,6 +3,5 @@ class HomesController < ApplicationController
   end
   
   def about
-   #@home = Home.all
   end
 end

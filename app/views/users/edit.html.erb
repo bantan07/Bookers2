@@ -1,10 +1,41 @@
-<h2>User info</h2>
-  <%= form_with model:@user, local:true do |f| %>
-    <label for="inputName">Name</label>
+<p id="notice"></p>
+<div class="container">
+ <div class="row">
+  <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <h2>User info</h2>
+     <% if @user.errors.any? %>
+     <div id="error_explanation">
+      <h3><%= pluralize(@user.errors.count, "error") %> 1 error prohibited this obj from being saved:</h3>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+    <%= form_with model:@user, local:true do |f| %>
+    <div class=group>
+    <label for="inputName">Name
     <%= f.text_field :name, autofocus: true, id:"inputName"%>
-    <label for="inputImage">Image</label>
-    <%= f.attachment_field :image, placeholder: "Image" %>
-    <label for="inputInputintroduction">Introduction</label>
+   </label>
+   </div> 
+   
+   <div class=group>
+    <label for="inputImage">Image
+    <%= f.attachment_field :profile_image, placeholder: "Image" %>
+    </label>
+    </div>
+    <div class=group>
+    <label for="inputInputintroduction">Introduction
     <%= f.text_field :introduction %>
-    <%= f.submit "Update User" %>
-<% end %>
+    </label>
+    </div>
+    <div class="group">
+    <%= f.submit "Update User", class:'btn btn-secondary' %>
+   </div> 
+   <% end %>
+
+  </div>
+ </div>
+  
+</div>
