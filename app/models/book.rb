@@ -1,7 +1,8 @@
-class Book < ApplicationRecord
+# frozen_string_literal: true
 
+class Book < ApplicationRecord
   belongs_to :user
-  
+
   validates :title, presence: true
   validates :body, presence: true, length: { in: 1..200 }
 end
